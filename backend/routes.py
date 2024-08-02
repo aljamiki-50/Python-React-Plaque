@@ -17,6 +17,8 @@ def create_friends():
     #   let validate here something
       required_fileds = ["name","role","gender","desc"]
       
+      
+      
       for field in required_fileds:
         #   checking as validation that field is there and not empty as well 
           if field not in data or not  data.get(field):

@@ -66,7 +66,7 @@ const UserCard = ({ user, setUsers }) => {
             alignItems={"center"}
             // border={"1px solid red"}
           >
-            <Avatar src="https://avatar.iran.liara.run/public/boy?username=Scott" />
+            <Avatar src={user.img_url} />
             <Box>
               <Heading
                 fontWeight={"bold"}
