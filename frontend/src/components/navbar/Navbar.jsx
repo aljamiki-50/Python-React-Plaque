@@ -13,14 +13,17 @@ import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 import CreateUserModal from "../CreateUserModal/CreateUserModal";
 
-
-
-const Navbar = () => {
+const Navbar = ({ setUsers }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   // Here's the signature
   return (
     <Container>
-      <Box px={4} my={4} borderRadius={5} bg={useColorModeValue("gray.200","gray.600")}>
+      <Box
+        px={4}
+        my={4}
+        borderRadius={5}
+        bg={useColorModeValue("gray.200", "gray.600")}
+      >
         <Flex h={16} alignItems={"Center"} justifyContent={"space-between"}>
           {/* left side  */}
           <Flex
@@ -64,9 +67,9 @@ const Navbar = () => {
               BFFship 🔥 
             </Text>
             <Button onClick={toggleColorMode}>
-               {colorMode === "light" ? <IoMoon /> : <LuSun />}
+              {colorMode === "light" ? <IoMoon /> : <LuSun />}
             </Button>
-            <CreateUserModal />
+            <CreateUserModal setUsers={setUsers} />
           </Flex>
         </Flex>
       </Box>

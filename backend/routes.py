@@ -18,8 +18,9 @@ def create_friends():
       required_fileds = ["name","role","gender","desc"]
       
       for field in required_fileds:
-          if field not in data:
-                return jsonify({"error": f"A '{field}' is missing. Please add it to proceed."}), 400
+        #   checking as validation that field is there and not empty as well 
+          if field not in data or not  data.get(field):
+                return jsonify({"error": f"A {field} is missing. Please add it to proceed."}), 400
 
       
       name = data.get("name")
@@ -81,7 +82,7 @@ def update_friend(id):
         friend.gender = data.get("gender", friend.gender)
         friend.desc = data.get("desc", friend.desc)
         db.session.commit()
-        return jsonify({"msg": "Record successfully updated.", "data": friend.json()}), 200
+        return jsonify(friend.to_json()), 200
 
     except Exception as e:
         db.session.rollback()
